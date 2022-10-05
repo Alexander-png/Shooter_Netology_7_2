@@ -10572,6 +10572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a4700cff44acf44b708cfd8df045f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tutorialCanvas: {fileID: 1384675157}
   _textBlockPrefab: {fileID: 2564631466580732225, guid: ff60559c024d08e44af1bf7bdb60e838,
     type: 3}
   _scripts:
