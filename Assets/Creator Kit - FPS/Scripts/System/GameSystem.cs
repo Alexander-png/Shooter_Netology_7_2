@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using Lesson_7_3.TutorialSystem;
 #if UNITY_EDITOR
 using UnityEditor.SceneManagement;
 #endif
@@ -11,6 +9,9 @@ using UnityEditor.SceneManagement;
 public class GameSystem : MonoBehaviour
 {
     public static GameSystem Instance { get; private set; }
+
+    [SerializeField]
+    private TutorialSystem _tutorialSystem;
 
     static int s_CurrentEpisode = -1;
     static int s_CurrentLevel = -1;
@@ -32,6 +33,8 @@ public class GameSystem : MonoBehaviour
     int m_TargetDestroyed;
 
     int m_Score = 0;
+
+    public TutorialSystem Tutorial => _tutorialSystem;
 
     void Awake()
     {
@@ -78,6 +81,8 @@ public class GameSystem : MonoBehaviour
 #endif
         
         GameSystemInfo.Instance.UpdateTimer(0);
+
+        Tutorial.OnEvent(TutorialEvent.GameStart);
     }
 
     public void ResetTimer()
@@ -188,7 +193,7 @@ public class GameSystem : MonoBehaviour
         //UI Update
         MinimapUI.Instance.UpdateForPlayerTransform(playerTransform);
        
-        if(FullscreenMap.Instance.gameObject.activeSelf)
+        if (FullscreenMap.Instance.gameObject.activeSelf)
             FullscreenMap.Instance.UpdateForPlayerTransform(playerTransform);
     }
 
@@ -200,7 +205,6 @@ public class GameSystem : MonoBehaviour
 
         return m_Timer + penalty;
     }
-
     
     public void TargetDestroyed(int score)
     {
@@ -208,5 +212,6 @@ public class GameSystem : MonoBehaviour
         m_Score += score;
 
         GameSystemInfo.Instance.UpdateScore(m_Score);
+        Tutorial.OnEvent(TutorialEvent.EnemyDie);
     }
 }

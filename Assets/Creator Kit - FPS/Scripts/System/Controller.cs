@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Lesson_7_3.TutorialSystem;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-[System.Serializable]
+[Serializable]
 public class AmmoInventoryEntry
 {
     [AmmoType]
@@ -145,10 +146,16 @@ public class Controller : MonoBehaviour
                 m_Grounded = false;
                 loosedGrounding = true;
                 FootstepPlayer.PlayClip(JumpingAudioCLip, 0.8f,1.1f);
+                GameSystem.Instance.Tutorial.OnEvent(TutorialEvent.PlayerJump);
             }
             
             bool running = m_Weapons[m_CurrentWeapon].CurrentState == Weapon.WeaponState.Idle && Input.GetButton("Run");
             float actualSpeed = running ? RunningSpeed : PlayerSpeed;
+
+            if (running)
+            {
+                GameSystem.Instance.Tutorial.OnEvent(TutorialEvent.PlayerSprint);
+            }
 
             if (loosedGrounding)
             {
@@ -159,6 +166,11 @@ public class Controller : MonoBehaviour
             move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
             if (move.sqrMagnitude > 1.0f)
                 move.Normalize();
+
+            if (move.sqrMagnitude > 0f)
+            {
+                GameSystem.Instance.Tutorial.OnEvent(TutorialEvent.PlayerStepMove);
+            }
 
             float usedSpeed = m_Grounded ? actualSpeed : m_SpeedAtJump;
             
@@ -185,13 +197,26 @@ public class Controller : MonoBehaviour
             currentAngles = CameraPosition.transform.localEulerAngles;
             currentAngles.x = m_VerticalAngle;
             CameraPosition.transform.localEulerAngles = currentAngles;
+
+            if (MathF.Abs(turnPlayer) > 0.3 || MathF.Abs(turnCam) > 0.3)
+            {
+                GameSystem.Instance.Tutorial.OnEvent(TutorialEvent.PlayerMouseMove);
+            }
   
             m_Weapons[m_CurrentWeapon].triggerDown = Input.GetMouseButton(0);
+
+            if (Input.GetMouseButton(0))
+            {
+                GameSystem.Instance.Tutorial.OnEvent(TutorialEvent.PlayerWeaponFire);
+            }
 
             Speed = move.magnitude / (PlayerSpeed * Time.deltaTime);
 
             if (Input.GetButton("Reload"))
+            {
                 m_Weapons[m_CurrentWeapon].Reload();
+                GameSystem.Instance.Tutorial.OnEvent(TutorialEvent.PlayerWeaponReload);
+            }   
 
             if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
@@ -282,6 +307,8 @@ public class Controller : MonoBehaviour
         
         m_Weapons[m_CurrentWeapon].gameObject.SetActive(true);
         m_Weapons[m_CurrentWeapon].Selected();
+
+        GameSystem.Instance.Tutorial.OnEvent(TutorialEvent.PlayerWeaponSwitch);
     }
 
     public int GetAmmo(int ammoType)
