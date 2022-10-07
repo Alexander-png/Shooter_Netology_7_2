@@ -7,13 +7,16 @@ namespace Lesson_7_3.TutorialSystem
 {
     public class TutorialSystem : MonoBehaviour
     {
-        [SerializeField]
-        private Canvas _tutorialCanvas;
+        private Canvas _uiCanvas;
 
         [Header("Tutorial UI component prefabs")]
         [SerializeField]
         private TutorialTextBlock _textBlockPrefab;
-        
+        [SerializeField]
+        private GameObject _gameObjectHintPrefab;
+        [SerializeField]
+        private TutorialTextBlock _uiHintPrefab;
+
         [SerializeField]
         private TutorialScript[] _scripts;
 
@@ -26,13 +29,20 @@ namespace Lesson_7_3.TutorialSystem
         private TutorialStep CurrentStep => _currentTutorial.Steps[_currentStep];
         private TutorialStep NextStep => _currentTutorial.Steps[_currentStep + 1];
         private bool HasNextStep => _currentTutorial.Steps.Length > _currentStep + 1;
-
         private bool IsLocked => _lockTimer > 0f;
 
         private TutorialTextBlock _currentTextBlock;
+        private GameObject _currentGameObjectHint;
+        private TutorialTextBlock _currentUIHint;
+
 
         private void StartTutorial(TutorialEvent @event)
         {
+            if (_uiCanvas == null)
+            {
+                _uiCanvas = FindObjectOfType<Canvas>();
+            }
+
             foreach (var script in _scripts)
             {
                 if (script.StartTrigger == @event)
@@ -43,12 +53,6 @@ namespace Lesson_7_3.TutorialSystem
                     break;
                 }
             }
-        }
-
-        private void Start()
-        {
-            Task.Yield();
-            _tutorialCanvas = FindObjectOfType<Canvas>();
         }
 
         private void FinishTutorial()
@@ -97,14 +101,41 @@ namespace Lesson_7_3.TutorialSystem
             }
         }
 
+        private void ShowText(string textToShow, bool replace = true)
+        {
+            if (replace && _currentTextBlock != null)
+            {
+                Destroy(_currentTextBlock.gameObject);
+            }
+            _currentTextBlock = Instantiate(_textBlockPrefab, _uiCanvas.transform);
+            _currentTextBlock.SetText(textToShow);
+        }
+
         private void ShowHintOnObject(string data)
         {
-            
+            if (_currentGameObjectHint == null)
+            {
+                GameObject target = GameObject.Find(data);
+                if (target == null)
+                {
+                    throw new Exception($"Failed to show hint: game object with name {data} not found");
+                }
+                _currentGameObjectHint = Instantiate(_gameObjectHintPrefab, target.transform);
+            }
         }
 
         private void ShowHintOnUI(string data)
         {
-            
+            if (_currentUIHint == null)
+            {
+                GameObject target = GameObject.Find(data);
+                if (target == null)
+                {
+                    throw new Exception($"Failed to show hint: game object with name {data} not found");
+                }
+                _currentUIHint = Instantiate(_uiHintPrefab, target.transform);
+                _currentUIHint.SetText("Placeholder"); // todo
+            }
         }
 
         private void Wait(float v)
@@ -118,6 +149,14 @@ namespace Lesson_7_3.TutorialSystem
             {
                 Destroy(_currentTextBlock.gameObject);
             }
+            if (_currentGameObjectHint != null)
+            {
+                Destroy(_currentGameObjectHint);
+            }
+            if (_currentUIHint != null)
+            {
+                Destroy(_currentUIHint);
+            }
         }
 
         private void Update()
@@ -128,12 +167,6 @@ namespace Lesson_7_3.TutorialSystem
             }
 
             OnEvent(TutorialEvent.Update);
-        }
-
-        private void ShowText(string textToShow)
-        {
-            _currentTextBlock = Instantiate(_textBlockPrefab, _tutorialCanvas.transform);
-            _currentTextBlock.SetText(textToShow);
         }
 
         public void OnEvent(TutorialEvent @event)
