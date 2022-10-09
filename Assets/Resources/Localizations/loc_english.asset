@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aec55d2dec7e3046bacef39b11b78b7, type: 3}
+  m_Name: loc_english
+  m_EditorClassIdentifier: 
+  _isRTL: 0
+  _font: {fileID: 0}
+  _terms:
+  - Key: Menu_Resume
+    Value: Return to Game
+  - Key: Menu_SelectLevel
+    Value: Select Level
+  - Key: Menu_Exit
+    Value: Exit Game
+  - Key: GameInfo_Timer
+    Value: Timer
+  - Key: GameInfo_Points
+    Value: Points
+  - Key: GameInfo_Pistol
+    Value: Healmatic500
+  - Key: GameInfo_AssaultRifle
+    Value: GermOBlaster
+  - Key: GameInfo_Grenade
+    Value: Pill
+  - Key: Final_Title
+    Value: FINAL SCORE
+  - Key: Final_FragCount
+    Value: Target Destroyed
+  - Key: Final_Time
+    Value: Time
+  - Key: Final_Penalty
+    Value: Penalty
+  - Key: Final_FinalTime
+    Value: Final Time
+  - Key: Final_Score
+    Value: Score
+  - Key: Tutorial_Welcome
+    Value: Welcome to FPS Shooter 7.3!
+  - Key: Tutorial_HowToMove
+    Value: Press WASD keys to walk around
+  - Key: Tutorial_HowToRun
+    Value: Now when walking hold left shift to run
+  - Key: Tutorial_HowToShoot
+    Value: Good. Now try to shoot, pressing RMB...
+  - Key: Tutorial_LetsFindTarget
+    Value: Excellent! Let's find slime to shoot...
+  - Key: Tutorial_HowNowShootAt
+    Value: See it? Now aim on and shoot!
+  - Key: Tutorial_HowToChangeWeapon
+    Value: Good. You can change weapon with scrolling mouse wheel.
+  - Key: Tutorial_Complete
+    Value: Now you are ready to heal this body. Do it as fast as you can. Good luck!
+  - Key: LevelSelect_Back
+    Value: Back
+  - Key: InGame_KeyNeeded
+    Value: Key needed
+  - Key: InGame_FirstBlob
+    Value: First blob
+  - Key: InGame_LastBlob
+    Value: LastBlob
