@@ -81,3 +81,7 @@ MonoBehaviour:
     Value: "\u041F\u0435\u0440\u0432\u044B\u0439 \u0431\u043B\u043E\u0431"
   - Key: InGame_LastBlob
     Value: "\u0412\u0442\u043E\u0440\u043E\u0439 \u0431\u043B\u043E\u0431"
+  - Key: FinalButton_Restart
+    Value: "\u0417\u0430\u043D\u043E\u0432\u043E"
+  - Key: FinalButton_NextLevel
+    Value: "\u0421\u043B\u0435\u0434. \u0443\u0440\u043E\u0432\u0435\u043D\u044C"

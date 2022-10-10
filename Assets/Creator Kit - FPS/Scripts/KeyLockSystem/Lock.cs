@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Lesson_7_4.LocalizationSystem.Base;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -16,7 +17,7 @@ public class Lock : GameTrigger
 
     void Start()
     {
-        KeyNameText.text = keyType;
+        KeyNameText.text = LocalizationCore.GetTerm(keyType, null);
 
         m_Canvas = KeyNameText.GetComponentInParent<Canvas>();
         m_Canvas.gameObject.SetActive(false);

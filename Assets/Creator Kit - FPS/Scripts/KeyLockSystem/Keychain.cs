@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Keychain: MonoBehaviour
+public class Keychain : MonoBehaviour
 {
     List<string> m_KeyTypeOwned = new List<string>();
 

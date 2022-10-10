@@ -66,4 +66,8 @@ MonoBehaviour:
   - Key: InGame_FirstBlob
     Value: First blob
   - Key: InGame_LastBlob
-    Value: LastBlob
+    Value: Last blob
+  - Key: FinalButton_Restart
+    Value: Restart
+  - Key: FinalButton_NextLevel
+    Value: Next Level

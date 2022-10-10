@@ -1,19 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Lesson_7_4.LocalizationSystem.Base;
+using Lesson_7_4.LocalizationSystem.Providers.Base;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Key : MonoBehaviour
+public class Key : LocalizationProvider
 {
     public string keyType;
     public Text KeyNameText;
 
-    void OnEnable()
+    private void Awake() =>
+        UpdateText();
+
+    private void OnValidate() =>
+        UpdateText();
+
+    private void UpdateText()
     {
-        KeyNameText.text = keyType;
+        KeyNameText.text = LocalizationCore.GetTerm(keyType, null);
     }
 
-    void OnTriggerEnter(Collider other)
+    protected override void UpdateValue()
+    {
+        UpdateText();
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         var keychain = other.GetComponent<Keychain>();
 
