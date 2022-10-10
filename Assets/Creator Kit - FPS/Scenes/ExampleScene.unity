@@ -10800,7 +10800,7 @@ MonoBehaviour:
   _uiHintPrefab: {fileID: 6841845285426932407, guid: b236f87b23e1edc47a120e50e2ba60b1,
     type: 3}
   _scripts:
-  - {fileID: 11400000, guid: 013f1dcf428feb24abb8e3e2e4d91259, type: 2}
+  - {fileID: 11400000, guid: 5da3b9a3e4781834cb8d147b2e321ee8, type: 2}
 --- !u!1 &2008179321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7449698351886042308, guid: b5efbb971dfd08c458d6074096aacb15,

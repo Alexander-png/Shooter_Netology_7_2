@@ -10,34 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14d9855944fdf0e44849b644b209ea66, type: 3}
-  m_Name: WelcomeTutorialScript
+  m_Name: LocalizedWelcomeTutorialScript
   m_EditorClassIdentifier: 
   StartTrigger: 1
   Steps:
   - StartTrigger: 0
     Action: 0
-    Data: Welcome to FPS Shooter 7.3!
+    Data: Tutorial_Welcome
   - StartTrigger: 0
     Action: 4
     Data: 3
   - StartTrigger: 0
     Action: 0
-    Data: Press WASD keys to walk around
+    Data: Tutorial_HowToMove
   - StartTrigger: 2
     Action: 4
     Data: 2
   - StartTrigger: 0
     Action: 0
-    Data: Now when walking hold left shift to run
+    Data: Tutorial_HowToRun
   - StartTrigger: 5
     Action: 4
     Data: 2
   - StartTrigger: 0
     Action: 0
-    Data: Good. Now try to shoot, pressing RMB...
+    Data: Tutorial_HowToShoot
   - StartTrigger: 6
     Action: 0
-    Data: Excellent! Let's find slime to shoot...
+    Data: Tutorial_LetsFindTarget
   - StartTrigger: 0
     Action: 4
     Data: 3
@@ -46,16 +46,16 @@ MonoBehaviour:
     Data: GermSlime (7)
   - StartTrigger: 0
     Action: 0
-    Data: See it? Now aim on and shoot!
+    Data: Tutorial_NowShootAt
   - StartTrigger: 9
     Action: 0
-    Data: Good. You can change your weapon with scrolling mouse wheel.
+    Data: Tutorial_HowToChangeWeapon
   - StartTrigger: 0
     Action: 4
     Data: 3
   - StartTrigger: 0
     Action: 0
-    Data: Now you are ready to heal this body. Do it as fast as you can. Good luck!
+    Data: Tutorial_Complete
   - StartTrigger: 0
     Action: 4
     Data: 5

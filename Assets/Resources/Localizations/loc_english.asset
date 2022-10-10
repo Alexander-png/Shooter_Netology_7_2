@@ -53,7 +53,7 @@ MonoBehaviour:
     Value: Good. Now try to shoot, pressing RMB...
   - Key: Tutorial_LetsFindTarget
     Value: Excellent! Let's find slime to shoot...
-  - Key: Tutorial_HowNowShootAt
+  - Key: Tutorial_NowShootAt
     Value: See it? Now aim on and shoot!
   - Key: Tutorial_HowToChangeWeapon
     Value: Good. You can change weapon with scrolling mouse wheel.

@@ -1,6 +1,5 @@
 ﻿using Lesson_7_3.TutorialSystem.UI;
 using System;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Lesson_7_3.TutorialSystem
@@ -108,7 +107,7 @@ namespace Lesson_7_3.TutorialSystem
                 Destroy(_currentTextBlock.gameObject);
             }
             _currentTextBlock = Instantiate(_textBlockPrefab, _uiCanvas.transform);
-            _currentTextBlock.SetText(textToShow);
+            _currentTextBlock.TermKey = textToShow;
         }
 
         private void ShowHintOnObject(string data)
@@ -134,7 +133,7 @@ namespace Lesson_7_3.TutorialSystem
                     throw new Exception($"Failed to show hint: game object with name {data} not found");
                 }
                 _currentUIHint = Instantiate(_uiHintPrefab, target.transform);
-                _currentUIHint.SetText("Placeholder"); // todo
+                _currentUIHint.TermKey = "Placeholder"; // todo
             }
         }
 

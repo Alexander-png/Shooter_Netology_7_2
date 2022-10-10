@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Lesson_7_4.LocalizationSystem.Base;
 #if UNITY_EDITOR
