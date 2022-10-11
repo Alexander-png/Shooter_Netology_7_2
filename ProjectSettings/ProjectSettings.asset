@@ -704,6 +704,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     UNet: 1
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -717,11 +718,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 55e51313-b85f-4a09-92ec-fa442d04d1da
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Homework 7.2
+  organizationId: typhoon_s
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

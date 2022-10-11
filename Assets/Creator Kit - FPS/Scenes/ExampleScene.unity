@@ -10801,6 +10801,27 @@ MonoBehaviour:
     type: 3}
   _scripts:
   - {fileID: 11400000, guid: 5da3b9a3e4781834cb8d147b2e321ee8, type: 2}
+--- !u!114 &1986614220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986614218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a44f49809f06a46aa2e573d8ba8cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 4967753
+  _iosGameId: 4967752
+  _testMode: 1
+  _interstitialAndroid: Interstitial_Android
+  _interstitialIos: Interstitial_iOS
+  _rewardedAndroid: Rewarded_Android
+  _rewardedIos: Rewarded_iOS
+  _bannerAndroid: Banner_Android
+  _bannerIos: Banner_iOS
 --- !u!1 &2008179321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7449698351886042308, guid: b5efbb971dfd08c458d6074096aacb15,
